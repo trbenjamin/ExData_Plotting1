@@ -1,14 +1,7 @@
-#meterData <- "../household_power_consumption.txt"
-#csvData   <- "../feb_1_2_2007.csv"
-#}
+# Use CSV data from plot1.R
+csvData   <- "../feb_1_2_2007.csv"
 
-#rwMatchCSV(meterData, csvData, rgx)
-#meter <- getPowerData(csvData)
-#hist(meter$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)", col = "red")
-
-##########################
-
-q <- read.csv('../feb_1_2_2007.csv',sep=';',stringsAsFactors=FALSE)
+q <- read.csv(csvData, sep=';',stringsAsFactors=FALSE)
 c1 <- paste(q$Date, q$Time)
 #c2 <- q$Global_active_power
 q1 <- cbind(c1,q)
@@ -37,5 +30,5 @@ legend("topright", lty=1, col=c("black", "red", "blue"), legend=c("Sub_metering_
 plot( q1$DateTime , q1$Global_reactive_power, type = 'l', xlab = 'datetime', ylab = 'Global_reactive_power')
 #legend("topright", lty=1, col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
-dev.copy(png,'plot4_01.png')
+dev.copy(png,'plot4.png')
 dev.off()
